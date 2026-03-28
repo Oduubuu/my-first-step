@@ -1,13 +1,47 @@
-<h1>
-  내 자바스크립트 첫 잔디!
-</h1>
-<button id="btn">
-  나를 눌러봐
-</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 메뉴 스타일 */
+        .menu-container {
+            margin: 20px;
+        }
+        .content {
+            display: none; /* 처음엔 안 보이게 */
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .content.show {
+            display: block;
+            /* show 클래스가 붙으면 보임! */
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="menu-container">
+        <button id="menu-btn">
+            메뉴 열기/닫기
+        </button>
+        <div id="dropdown-content" class="content">
+            <p>안녕하세요, 오두부님!</p>
+            <p>이게 바로 자바스크립트로 만든 드롭다운입니다.</p>
+        </div>
+    </div>
 
-<script>
-  const button = document.querySelector('#btn');
-  button.addEventListener('click' , () => {
-    alert('와! 내가 직접 짠 코드가 돌아간다!');
-  });
-</script>
+    <script>
+        // 1. 버튼과 내용을 찾아서 변수에 담기
+        const btn = document.querySelector('#menu-btn');
+        const content = document.querySelector('#dropdown-content');
+
+        // 2. 버튼 클릭하면 'show' 클래스를 넣었다 뺐다(toggle) 하기
+        btn.addEventListener('click', () => {
+            content.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
