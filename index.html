@@ -4,42 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <style>
-        /* 메뉴 스타일 */
         .menu-container {
-            margin: 20px;
+            margin: 50px;
+            text-align: center;
+            font-family: sans-serif;
         }
+
+        /* 버튼스타일 */
+        #menu-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* 드롭다운 내용 (오늘의 핵심!) */
         .content {
-            display: none; /* 처음엔 안 보이게 */
-            background: #f9f9f9;
-            padding: 10px;
-            border: 1px solid #ddd;
+            /* 처음엔 높이를 0으로 */
+            max-height: 0;
+            /* 넘치는 내용은 숨기기 */
+            overflow: hidden;
+            /* 0.5초 동안 부드럽게 변신 */
+            transition: max-height 0.5s ease;
+            background-color: #f1f1f1;
+            margin-top: 10px;
+            border-radius: 5px;
         }
+
+        /* 버튼을 누르면 이 클래스가 붙어서 스르륵 내려와요 */
         .content.show {
-            display: block;
-            /* show 클래스가 붙으면 보임! */
+            /* 내용이 보일 만큼 늘리기 */
+            max-height: 200px;
+        }
+
+        .inner-text {
+            padding: 20px;
         }
     </style>
-    
 </head>
 <body>
     <div class="menu-container">
         <button id="menu-btn">
-            메뉴 열기/닫기
+            오두부의 드롭다운 (클릭!)
         </button>
         <div id="dropdown-content" class="content">
-            <p>안녕하세요, 오두부님!</p>
-            <p>이게 바로 자바스크립트로 만든 드롭다운입니다.</p>
+            <div class="inner-text">
+                <p>🌱 오늘의 잔디 심기 성공!</p>
+                <p>CSS transition으로 부드러워졌어요.</p>
+            </div>
         </div>
     </div>
 
     <script>
-        // 1. 버튼과 내용을 찾아서 변수에 담기
         const btn = document.querySelector('#menu-btn');
         const content = document.querySelector('#dropdown-content');
 
-        // 2. 버튼 클릭하면 'show' 클래스를 넣었다 뺐다(toggle) 하기
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click' , () => {
             content.classList.toggle('show');
         });
     </script>
