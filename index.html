@@ -58,6 +58,19 @@
                 <p>CSS transition으로 부드러워졌어요.</p>
             </div>
         </div>
+
+        <button id="modal-open-btn" style="margin-top: 20px; paddng: 10px; background: #2196f3; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            공지사항 열기
+        </button>
+        <div id="modal-bg" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 100;">
+            <div style="positon: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 10px; text-align: center;">
+                <h2>오늘의 공지</h2>
+                <p>오두부님, 오늘 벌써 코드 두 개째네요! 대단해요!</p>
+                <button id="moda-close-btn" style="padding: 5px 15px; cursor: pointer;">
+                    닫기
+                </button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -66,6 +79,21 @@
 
         btn.addEventListener('click' , () => {
             content.classList.toggle('show');
+        });
+
+        //모달 관련 요소 찾기
+        const openBtn = document.querySelector('#modal-open-btn');
+        const closeBtn = document.querySelector('#modal-close-btn');
+        const modalBg = document.querySelector('#modal-bg');
+
+        // 1. 열기 버튼 누르면 보이기
+        openBtn.addEventListener('click', () => {
+            modalBg.style.display = 'block';
+        });
+
+        // 2. 닫기 버튼 누르면 숨기기
+        closeBtn.addEventListener('click', () => {
+            modalBg.style.display = 'none';
         });
     </script>
 </body>
