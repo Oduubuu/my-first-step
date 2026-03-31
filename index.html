@@ -65,9 +65,49 @@
             background-color: #444;
             color: white;
         }
+
+        #doyoon-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, #4CAF50, #81C784);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            font-weight: bold;
+            z-index: 9999;
+            /* 마법의 9999층! 절대 안가려짐 */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-family: 'Apple SD Gothic Neo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #doyoon-banner button {
+            margin-left: 20px;
+            background-color: rgba(255,255,255,0.3);
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 10px;
+            padding: 2px 8px;
+        }
+        
     </style>
 </head>
 <body>
+    <div id="doyoon-banner">
+        <span style="font-size: 1.2rem; margin-right: 10px;">👶🏻</span>
+        <span>엄마 파이팅! 도윤이가 지켜보고 있다! 웅차웅차!</span>
+
+        <button onclick="document.getElementById('doyoon-banner').style.display='none'">
+            닫기
+        </button>
+    </div>
+    <div style="margin-top: 60px;"></div>
+
     <button id="theme-btn" class="btn">다크모드</button>
 
     <div class="profile-card">
