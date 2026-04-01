@@ -4,68 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
-        /* 1. 기본 배경 및 부드러운 전환 효과 */
         body {
             margin: 0;
-            padding: 20px;
-            font-family: sans-serif;
-            background-color: white;
-            color: black;
-            transition: background-color 0.4s, color 0.4s;
-        }
-
-        /* 2. 다크모드 스타일 (.dark 클래스가 붙을 때) */
-        body.dark {
-            background-color: #222;
-            color: white;
-        }
-
-        /* 3. 프로필 카드 디자인 */
-        .profile-card {
-            width: 280px;
-            margin: 30px auto;
-            padding: 25px;
-            border: 1px solid #eee;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-family: 'Apple SD Gothic Neo', sans-serif;
             text-align: center;
-            background-color: white;
-            color: black;
-        }
-        body.dark .profile-card {
-            background: #333;
-            color: white;
-            border-color: #444;
-        }
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid #4CAF50;
-            margin-bottom: 15px;
+            background: #f9f9f9;
         }
 
-        /* 4. 버튼 공통 스타일 */
-        .btn {
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        #theme-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #eee;
-        }
-        body.dark #theme-btn {
-            background-color: #444;
-            color: white;
-        }
-
+        /* 배너스타일 */
         #doyoon-banner {
             position: fixed;
             top: 0;
@@ -73,75 +20,66 @@
             width: 100%;
             background: linear-gradient(to right, #4CAF50, #81C784);
             color: white;
-            text-align: center;
             padding: 12px 0;
             font-weight: bold;
             z-index: 9999;
-            /* 마법의 9999층! 절대 안가려짐 */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            font-family: 'Apple SD Gothic Neo', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
-        #doyoon-banner button {
-            margin-left: 20px;
-            background-color: rgba(255,255,255,0.3);
+
+        /* 중앙 버튼 스타일 */
+        .container {
+            margin-top: 150px;
+        }
+        #celebrate-btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            background: #FF5252;
             color: white;
-            border: 1px solid white;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 10px;
-            padding: 2px 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
         }
-        
+        #celebrate-btn:active {
+            transform: scale(0.95);
+        }
     </style>
+    
 </head>
 <body>
+    
     <div id="doyoon-banner">
-        <span style="font-size: 1.2rem; margin-right: 10px;">👶🏻</span>
-        <span>엄마 파이팅! 도윤이가 지켜보고 있다! 웅차웅차!</span>
-
-        <button onclick="document.getElementById('doyoon-banner').style.display='none'">
+        <span>
+            4월도 엄마 파이팅! - 도윤👶🏻 -
+        </span>
+        <button id="close-btn">
             닫기
         </button>
     </div>
-    <div style="margin-top: 60px;"></div>
 
-    <button id="theme-btn" class="btn">다크모드</button>
-
-    <div class="profile-card">
-        <img src="https://via.placeholder.com/100" alt="프로필" class="profile-img">
-        <h2>오두부</h2>
-        <p style="color: #888;">
-                초보 퍼블리셔 / 잔디 관리자
-        </p>
-        <div class="" style="margin-top: 15px;">
-            <button class="btn" style="background: #4CAF50; color: white;">
-                GitHub
-            </button>
-            <button class="btn" style="background: #eee;">
-                Blog
-            </button>
-        </div>
+    <div class="container">
+        <h1>4월 1일, 첫 잔디 완료!</h1>
+        <p>아래 버튼을 눌러 자축해 보세요.</p>
+        <button id="celebrate-btn">
+            🎉 축하 폭죽 터트리기
+        </button>
     </div>
 
     <script>
-        const themeBtn = document.querySelector('#theme-btn');
+        const bannerBtn = document.querySelector('#close-btn');
+        const btn = document.querySelector('#celebrate-btn');
 
-        // 다크모드 토글 기능
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-
-            // 버튼 텍스트 변경
-            if (document.body.classList.contains('dark')) {
-                themeBtn.textContent = '라이트모드';
-            } else {
-                themeBtn.textContent = '다크모드';
-            }
-            
+        bannerBtn.addEventListener('click', function(){
+            document.getElementById('doyoon-banner').style.display = 'none';
         });
 
+        btn.addEventListener('click', function(){
+            alert("팡팡! 🎆 4월의 첫 잔디 성공을 축하합니다, 오두부님!");
+
+            console.log("도윤이도 기뻐하고 있어요!");
+        });
+
+        
     </script>
 </body>
 </html>
