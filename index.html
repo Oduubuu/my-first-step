@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -25,10 +27,10 @@
             z-index: 9999;
         }
 
-        /* 중앙 버튼 스타일 */
         .container {
             margin-top: 150px;
         }
+        /* 중앙 버튼 스타일 */
         #celebrate-btn {
             padding: 15px 30px;
             font-size: 1.2rem;
@@ -37,17 +39,14 @@
             background: #FF5252;
             color: white;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-        }
-        #celebrate-btn:active {
-            transform: scale(0.95);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
     </style>
-    
+
 </head>
+
 <body>
-    
+
     <div id="doyoon-banner">
         <span>
             4월도 엄마 파이팅! - 도윤👶🏻 -
@@ -58,8 +57,6 @@
     </div>
 
     <div class="container">
-        <h1>4월 1일, 첫 잔디 완료!</h1>
-        <p>아래 버튼을 눌러 자축해 보세요.</p>
         <button id="celebrate-btn">
             🎉 축하 폭죽 터트리기
         </button>
@@ -69,17 +66,18 @@
         const bannerBtn = document.querySelector('#close-btn');
         const btn = document.querySelector('#celebrate-btn');
 
-        bannerBtn.addEventListener('click', function(){
-            document.getElementById('doyoon-banner').style.display = 'none';
-        });
-
         btn.addEventListener('click', function(){
-            alert("팡팡! 🎆 4월의 첫 잔디 성공을 축하합니다, 오두부님!");
-
-            console.log("도윤이도 기뻐하고 있어요!");
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6},
+                colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00']
+            });
         });
-
-        
+        bannerBtn.addEventListener('click', function(){
+            document.querySelector('#doyoon-banner').style.display = 'none';
+        });
     </script>
 </body>
+
 </html>
