@@ -5,67 +5,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body {
-            width: 100vw;
-            height: 100vh;
             margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family: 'Apple SD Gothic Neo', sans-serif;
+            text-align: center;
+            background: #f9f9f9;
         }
-        #banner {
-            width: 100%;
-            height: 50px;
+
+        /* 배너스타일 */
+        #doyoon-banner {
+            position: fixed;
             top: 0;
             left: 0;
-            position: fixed;
-            background-color: blueviolet;
+            width: 100%;
+            background: linear-gradient(to right, #4CAF50, #81C784);
             color: white;
+            padding: 12px 0;
+            font-weight: bold;
             z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        #close-btn {
-            margin: 10px;
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
+            margin-top: 150px;
+        }
+
+        /* 중앙 버튼 스타일 */
+        #celebrate-btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            background: #FF5252;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
     </style>
+
 </head>
 
 <body>
-    <div id="banner">
-        <span>상단배너입니다</span>
-        <button id="close-btn">닫기</button>
+
+    <div id="doyoon-banner">
+        <span>
+            4월도 엄마 파이팅! - 도윤👶🏻 -
+        </span>
+        <button id="close-btn">
+            닫기
+        </button>
     </div>
 
     <div class="container">
         <button id="celebrate-btn">
-            버튼을 눌러보세요!
+            🎉 축하 폭죽 터트리기
         </button>
     </div>
 
     <script>
-        const btn = document.querySelector('#close-btn');
-        const btn2 = document.querySelector('#celebrate-btn');
+        // const bannerBtn = document.querySelector('#close-btn');
+        // const btn = document.querySelector('#celebrate-btn');
+
+        // btn.addEventListener('click', function () {
+        //     confetti({
+        //         particleCount: 150,
+        //         spread: 70,
+        //         origin: {
+        //             y: 0.6
+        //         },
+        //         colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00']
+        //     });
+        // });
+        // bannerBtn.addEventListener('click', function () {
+        //     document.querySelector('#doyoon-banner').style.display = 'none';
+        // });
+
+        // 1. 응원 문구 리스트 (대괄호 []를 써요)
+        const messages = [
+            "도윤이가 듬뿍 사랑해!",
+            "엄마는 첝 퍼블리셔!",
+            "오늘 잔디도 초록초록해!",
+            "우와! 폭죽 또 터뜨려줘!"
+        ];
+
+        const bannerText = document.querySelector('#doyoon-banner');
+        const btn = document.querySelector('#celebrate-btn');
 
         btn.addEventListener('click', function(){
-            document.querySelector('#banner').style.display = 'none';
-        });
-        btn2.addEventListener('click', function(){
-            alert('여보 사랑해');
-            
-            console.log('되나안되나확인중');
+            // 2. 랜덤 숫자를 뽑아서 문구를 선택합니다.
+            const randomIndex = Math.floor(Math.random() * messages.length);
+
+            // [퀴즈용 빈칸!] 배너의 글자를 랜덤 문구로 바꿉니다.
+            bannerText.textContent = messages[randomIndex];
+
+            confetti(); //폭죽은 덤!
         });
     </script>
 </body>
