@@ -64,42 +64,21 @@
     </div>
 
     <script>
-        // const bannerBtn = document.querySelector('#close-btn');
-        // const btn = document.querySelector('#celebrate-btn');
-
-        // btn.addEventListener('click', function () {
-        //     confetti({
-        //         particleCount: 150,
-        //         spread: 70,
-        //         origin: {
-        //             y: 0.6
-        //         },
-        //         colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00']
-        //     });
-        // });
-        // bannerBtn.addEventListener('click', function () {
-        //     document.querySelector('#doyoon-banner').style.display = 'none';
-        // });
-
-        // 1. 응원 문구 리스트 (대괄호 []를 써요)
-        const messages = [
-            "도윤이가 듬뿍 사랑해!",
-            "엄마는 첝 퍼블리셔!",
-            "오늘 잔디도 초록초록해!",
-            "우와! 폭죽 또 터뜨려줘!"
+        const photos = [
+            "doyoon1.jpg",
+            "doyoon2.jpg",
+            "doyoon3.jpg"
         ];
 
-        const bannerText = document.querySelector('#doyoon-banner');
-        const btn = document.querySelector('#celebrate-btn');
+        const mainPhoto = document.querySelector('#doyoon-photo');
+        const photoBtn = document.querySelector('#photo-change-btn');
 
-        btn.addEventListener('click', function(){
-            // 2. 랜덤 숫자를 뽑아서 문구를 선택합니다.
-            const randomIndex = Math.floor(Math.random() * messages.length);
+        photoBtn.addEventListener('click', function(){
+            const randomIndex = Math.floor(Math.random() * photos.length);
 
-            // [퀴즈용 빈칸!] 배너의 글자를 랜덤 문구로 바꿉니다.
-            bannerText.textContent = messages[randomIndex];
+            mainPhoto.src = photos[randomIndex];
 
-            confetti(); //폭죽은 덤!
+            console.log("사진이 바꼈어요!");
         });
     </script>
 </body>
